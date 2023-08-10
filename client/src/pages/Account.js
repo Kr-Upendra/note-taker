@@ -1,9 +1,15 @@
-import React from "react";
+import { useCookies } from "react-cookie";
 
 export default function Account() {
+  const [cookie, _] = useCookies(["access_token"]);
+
   return (
     <div>
-      <h1>Account Page</h1>
+      {cookie.access_token ? (
+        <h1>Hello {localStorage.getItem("currentUser")}</h1>
+      ) : (
+        <h1>You Are not logged In! Kindly Login to get access!</h1>
+      )}
     </div>
   );
 }

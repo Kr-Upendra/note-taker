@@ -82,31 +82,3 @@ export default function Login() {
     </div>
   );
 }
-
-/*
-
-  const loginUser = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:4040/api/users/login",
-        {
-          email,
-          password,
-        }
-      );
-      if (response.data.status === "success") {
-        setCookie("access_token", response.data.token);
-        window.localStorage.setItem("currentUser", response.data.name);
-        alert("You are logged in!");
-        navigate("/account");
-      }
-    } catch (err) {
-      console.error(err);
-      err.response.data
-        ? alert(err.response.data.message)
-        : alert("some error occuered!");
-    }
-  };
-
-*/
