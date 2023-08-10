@@ -5,7 +5,7 @@ import { useCookies } from "react-cookie";
 
 export default function NavbarUser() {
   const { showNav, setShowNav } = useContext(NavbarContext);
-  const [_, setCookie] = useCookies(["access_token"]);
+  const [, setCookie] = useCookies(["access_token"]);
 
   const handleNavbar = () => {
     setShowNav((prevValue) => !prevValue);
@@ -25,7 +25,7 @@ export default function NavbarUser() {
         <img
           className="navbar__account--box-photo"
           src="./default.png"
-          alt="User Photo"
+          alt="User"
         />
         <i className="el-down fa-solid fa-caret-down"></i>
       </div>

@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthUrl } from "../../utils/Urls";
@@ -7,7 +8,7 @@ import { useCookies } from "react-cookie";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [_, setCookie] = useCookies(["access_token"]);
+  const [, setCookie] = useCookies(["access_token"]);
   const navigate = useNavigate();
 
   const loginUser = async (e) => {

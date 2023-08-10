@@ -1,7 +1,8 @@
+// eslint-disable-next-line
 import { useCookies } from "react-cookie";
 
 export default function Account() {
-  const [cookie, _] = useCookies(["access_token"]);
+  const [cookie] = useCookies(["access_token"]);
 
   return (
     <div>
