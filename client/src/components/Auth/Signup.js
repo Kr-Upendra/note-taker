@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function Signup() {
+  const navigate = useNavigate();
   const [formDetails, setFormDetails] = useState({
     name: "",
     email: "",
@@ -24,6 +25,7 @@ export default function Signup() {
 
       if (response.data.status === "success") {
         alert("You are signed up. Kindly You can login now!");
+        navigate("/auth/login");
       }
     } catch (err) {
       console.log(err.response);
