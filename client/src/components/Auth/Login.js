@@ -1,12 +1,40 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthUrl } from "../../utils/Urls";
+import axios from "axios";
+import { useCookies } from "react-cookie";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [_, setCookie] = useCookies(["access_token"]);
+  const navigate = useNavigate();
+
+  const loginUser = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`${AuthUrl}login`, { email, password });
+      if (response.data.status === "success") {
+        const { token, name } = response.data;
+        setCookie("access_token", token);
+        localStorage.setItem("currentUser", name);
+        alert("You are logged in now!");
+        navigate("/account");
+      }
+    } catch (err) {
+      alert(
+        err.response.data.message ||
+          "some error occured. Please try again lator!"
+      );
+    }
+  };
+
   return (
     <div className="container__item">
       <div className="container__item--heading">
         <h3 className="el-container-heading">Sign in access your memories</h3>
       </div>
-      <form className="form">
+      <form onSubmit={loginUser} className="form">
         <div className="form__inputbox">
           <label htmlFor="email">Your Email</label>
           <input
@@ -17,6 +45,7 @@ export default function Login() {
             required
             autoComplete="off"
             autoFocus
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="form__inputbox">
@@ -28,6 +57,7 @@ export default function Login() {
             className="form__inputbox--input"
             required
             autoComplete="off"
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className="form__forgotpassword">

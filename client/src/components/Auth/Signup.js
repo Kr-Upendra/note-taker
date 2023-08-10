@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthUrl } from "../../utils/Urls";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -18,17 +19,13 @@ export default function Signup() {
   const createUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:4040/api/users/signup",
-        formDetails
-      );
+      const response = await axios.post(`${AuthUrl}signup`, formDetails);
 
       if (response.data.status === "success") {
         alert("You are signed up. Kindly You can login now!");
         navigate("/auth/login");
       }
     } catch (err) {
-      console.log(err.response);
       err.response.data
         ? alert(err.response.data.message)
         : alert("SOME ERROR OCCURED!");
@@ -94,31 +91,3 @@ export default function Signup() {
     </div>
   );
 }
-
-/*
-
-
-  const createUser = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://127.0.0.1:4040/api/users/signup",
-        formDetails
-      );
-
-      if (response.data.status === "success") {
-        alert("You are signed up. You can login now!");
-        setDefaultForm(false);
-      }
-    } catch (err) {
-      console.log(err.response);
-      err.response.data
-        ? alert(err.response.data.message)
-        : alert("SOME ERROR OCCURED!");
-    }
-  };
-
-  
-
-
-*/
