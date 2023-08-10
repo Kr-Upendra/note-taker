@@ -1,0 +1,54 @@
+.navbar__account {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__account--username {
+  color: var(--lightWhite);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.navbar__account--box {
+  display: flex;
+  align-items: center;
+  margin-left: 0.55rem;
+  cursor: pointer;
+}
+
+.navbar__account--box-photo {
+  width: 30px;
+  margin-right: 0.1rem;
+}
+
+.el-down {
+  font-size: 1rem;
+  color: var(--lightWhite);
+}
+
+.navbar__account--options {
+  right: -100%;
+  width: max(25%, 230px);
+  box-shadow: var(--darkShadow);
+  z-index: 3;
+}
+
+.navbar__account--options-item {
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.55rem 0;
+  width: 170px;
+  border: 1px dotted var(--primaryWhite);
+  background-color: transparent;
+  color: var(--primaryWhite);
+  cursor: pointer;
+}
+
+.navbar__account--options-item:hover {
+  border-bottom: 2px solid var(--primaryWhite);
+}
+
+.navbar__account--options[aria-hidden="true"] {
+  right: 2%;
+}
