@@ -385,103 +385,6 @@ a {
 
 /* NOTES */
 
-.notes {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  gap: 2rem 1.5rem;
-  justify-content: center;
-}
-
-.note {
-  max-width: 260px;
-  border-radius: 0.35rem;
-  padding: 0.65rem 0.35rem;
-  border: 1px solid var(--lightBluishBorder);
-  position: relative;
-}
-
-.note__titlebox {
-  height: 2.3rem;
-}
-
-.el-title {
-  font-size: 1rem;
-  color: var(--lightWhite);
-  text-justify: inter-word;
-  text-align: justify;
-}
-
-.note__description {
-  margin: 1rem 0 1rem;
-  height: 5rem;
-}
-
-.el-desc {
-  font-size: 0.9rem;
-}
-
-.note__otherdetails {
-  display: flex;
-  align-items: center;
-}
-
-.note__otherdetails--tags {
-  margin-right: auto;
-}
-
-.note-tag {
-  font-size: 0.9rem;
-  cursor: default;
-  padding: 0.25rem 0.5rem;
-  text-transform: capitalize;
-  border: 1px dotted var(--lightBluishBorder);
-}
-
-.created-time {
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.note__buttons {
-  background-color: rgba(0, 76, 216, 0.096);
-  backdrop-filter: blur(3px);
-  border-top-right-radius: 0.35rem;
-  border-bottom-left-radius: 0.35rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.45rem;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-}
-
-.el-bt {
-  color: var(--primaryWhite);
-  margin: 0.35rem 0;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: color var(--transitionTimeStyle);
-}
-
-.note:hover .note__buttons {
-  display: flex;
-}
-
-.el-bt[itemProp="edit"]:hover {
-  color: #ffff02;
-}
-
-.el-bt[itemProp="delete"]:hover {
-  color: #ff4500;
-}
-
-.el-bt[itemProp="view"]:hover {
-  color: #008000;
-}
-
 /* PAGINATION */
 .pgbox {
   width: 70%;
@@ -596,10 +499,6 @@ a {
     width: 80%;
   }
 
-  .notes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .pgbox {
     width: 63%;
     margin: 0 0 3rem 18.5rem;
@@ -632,10 +531,6 @@ a {
     display: block;
   }
 
-  .notes {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .pgbox {
     width: 100%;
     margin: 0 0 3rem 0;
@@ -653,12 +548,6 @@ a {
 
   .form {
     width: 90%;
-  }
-}
-
-@media (max-width: 720px) {
-  .notes {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -713,10 +602,6 @@ a {
     font-size: 0.9rem;
   }
 
-  .notes {
-    column-gap: 0.6rem;
-  }
-
   .el-title {
     font-size: 0.95rem;
     text-align: unset;
@@ -728,18 +613,6 @@ a {
 
   .note__buttons {
     display: flex;
-  }
-}
-
-@media (max-width: 500px) {
-  /* .note__titlebox {
-    height: auto;
-  } */
-
-  .note__otherdetails {
-    align-items: start;
-    flex-direction: column;
-    row-gap: 0.55rem;
   }
 }
 

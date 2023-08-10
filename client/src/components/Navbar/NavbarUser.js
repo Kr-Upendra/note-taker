@@ -2,6 +2,7 @@ import { useContext } from "react";
 import "./navCss/NavbarUser.css";
 import { NavbarContext } from "../../context/HandleNavContext";
 import { useCookies } from "react-cookie";
+import { Link } from "react-router-dom";
 
 export default function NavbarUser() {
   const { showNav, setShowNav } = useContext(NavbarContext);
@@ -24,8 +25,8 @@ export default function NavbarUser() {
       <div className="navbar__account--box" onClick={handleNavbar}>
         <img
           className="navbar__account--box-photo"
-          src="./default.png"
-          alt="User"
+          src="/default.png"
+          alt="User Name"
         />
         <i className="el-down fa-solid fa-caret-down"></i>
       </div>
@@ -33,11 +34,34 @@ export default function NavbarUser() {
         aria-hidden={showNav}
         className="navbar__account--options short__navbar"
       >
-        <button className="navbar__account--options-item">Your Profile</button>
-        <button className="navbar__account--options-item">
+        <Link
+          onClick={handleNavbar}
+          to="/account"
+          className="navbar__account--options-item"
+        >
+          Your Profile
+        </Link>
+        <Link
+          onClick={handleNavbar}
+          to="/account/notes"
+          className="navbar__account--options-item"
+        >
+          Your Notes
+        </Link>
+        <Link
+          onClick={handleNavbar}
+          to="/account/update-profile"
+          className="navbar__account--options-item"
+        >
           Update Profile
-        </button>
-        <button className="navbar__account--options-item">Memebership</button>
+        </Link>
+        <Link
+          onClick={handleNavbar}
+          to="/account/membership"
+          className="navbar__account--options-item"
+        >
+          Memebership
+        </Link>
         <button
           className="navbar__account--options-item"
           onClick={handleLogout}

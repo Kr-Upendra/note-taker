@@ -16,13 +16,17 @@ export default function NavbarLinks() {
         <i className={`fa-solid fa-${!showNav ? "bars" : "xmark"}`}></i>
       </div>
       <div className="navbarLinks__linkbox" aria-hidden={showNav}>
-        <Link to="/" className="el-nav-links">
+        <Link onClick={handleNavbarLinks} to="/" className="el-nav-links">
           Home
         </Link>
-        <Link to="/about" className="el-nav-links">
+        <Link onClick={handleNavbarLinks} to="/about" className="el-nav-links">
           About
         </Link>
-        <Link to="/auth/signup" className="el-nav-links">
+        <Link
+          onClick={handleNavbarLinks}
+          to="/auth/signup"
+          className="el-nav-links"
+        >
           Sign in
         </Link>
       </div>

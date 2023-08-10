@@ -1,0 +1,244 @@
+.nContainer {
+  padding: 0 2.5rem;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.nContainer__btns {
+  position: absolute;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  border-radius: 0.45rem;
+  border: none;
+  background-color: var(--lightBluishBorder);
+  justify-content: center;
+}
+
+.nContainer__btns a {
+  margin: 0.45rem 0;
+  width: 140px;
+  text-align: center;
+  padding: 0.45rem 0;
+  border: 1px dotted var(--lightWhite);
+  color: var(--lightWhite);
+}
+
+.nContainer__btns a:hover {
+  border-bottom: 2px solid var(--primaryWhite);
+}
+
+.nContainer__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.nContainer__heading h1 {
+  font-size: 1.75rem;
+  color: var(--lightWhite);
+}
+
+.el-show {
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.25rem;
+  background-color: var(--bluishGray);
+  color: var(--primaryWhite);
+  cursor: pointer;
+  font-weight: 500;
+  display: none;
+}
+
+.notes {
+  margin: 1rem auto;
+  max-width: 680px;
+  width: 100%;
+  padding: 2rem 1.3rem;
+  border-radius: 0.35rem;
+  background: rgba(42, 16, 81, 0.38);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.notes__note {
+  border: 1px solid var(--lightBluishBorder);
+  max-width: 300px;
+  padding: 1rem 0.35rem;
+  border-radius: 0.25rem;
+  position: relative;
+  background: rgba(0, 0, 0, 0.432);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.notes__note--titlebox {
+  margin-bottom: 0.85rem;
+}
+
+.el-title {
+  font-size: 1.1rem;
+  line-height: 1.25;
+  color: var(--lightWhite);
+}
+
+.notes__note--description {
+  margin-bottom: 2rem;
+  height: 5rem;
+}
+
+.el-desc {
+  font-size: 0.95rem;
+}
+
+.notes__note--details {
+  display: flex;
+}
+
+.notes__note--details-tags {
+  margin-right: auto;
+}
+
+.el-tag {
+  padding: 0.15rem 0.25rem;
+  border: 1px solid var(--lightBluishBorder);
+}
+
+.el-date {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.notes__note--operations {
+  background-color: rgba(0, 76, 216, 0.096);
+  backdrop-filter: blur(3px);
+  border-top-right-radius: 0.35rem;
+  border-bottom-left-radius: 0.35rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.45rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.el-bt {
+  color: var(--primaryWhite);
+  margin: 0.35rem 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color var(--transitionTimeStyle);
+}
+
+.notes__note:hover .notes__note--operations {
+  display: flex;
+}
+
+.el-bt[itemProp="edit"]:hover {
+  color: #ffff02;
+}
+
+.el-bt[itemProp="delete"]:hover {
+  color: #ff4500;
+}
+
+.el-bt[itemProp="view"]:hover {
+  color: #008000;
+}
+
+@media (max-width: 1200px) {
+  .el-show {
+    display: block;
+  }
+
+  .nContainer__btns {
+    z-index: 10;
+    background-color: var(--bluishGray);
+    right: -100%;
+    transition: right var(--transitionTimeStyle);
+  }
+
+  .nContainer__btns[aria-hidden="false"] {
+    right: 5%;
+  }
+
+  .nContainer__btns a {
+    color: var(--primaryWhite);
+  }
+}
+
+@media (max-width: 600px) {
+  .nContainer {
+    padding: 0 1.25rem;
+  }
+
+  .notes {
+    gap: 1rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .notes__note {
+    padding: 0.65rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .notes__note--details {
+    flex-direction: column;
+  }
+
+  .notes__note--details-tags {
+    margin-bottom: 0.65rem;
+  }
+  .notes__note--description {
+    margin-bottom: 2.75rem;
+  }
+}
+
+/*
+
+.note__buttons {
+  background-color: rgba(0, 76, 216, 0.096);
+  backdrop-filter: blur(3px);
+  border-top-right-radius: 0.35rem;
+  border-bottom-left-radius: 0.35rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.45rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.el-bt {
+  color: var(--primaryWhite);
+  margin: 0.35rem 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color var(--transitionTimeStyle);
+}
+
+.note:hover .note__buttons {
+  display: flex;
+}
+
+.el-bt[itemProp="edit"]:hover {
+  color: #ffff02;
+}
+
+.el-bt[itemProp="delete"]:hover {
+  color: #ff4500;
+}
+
+.el-bt[itemProp="view"]:hover {
+  color: #008000;
+}
+
+*/

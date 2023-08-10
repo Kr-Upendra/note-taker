@@ -43,6 +43,7 @@
   background-color: transparent;
   color: var(--primaryWhite);
   cursor: pointer;
+  text-align: center;
 }
 
 .navbar__account--options-item:hover {

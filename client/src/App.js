@@ -8,6 +8,15 @@ import AuthLayout from "./components/AuthLayout";
 import Signup from "./components/Auth/Signup";
 import Login from "./components/Auth/Login";
 import NotFound from "./components/NotFound";
+import AccountLayout from "./components/AccountLayout";
+import UpdateProfile from "./pages/account/UpdateProfile";
+import MemberShip from "./pages/account/MemberShip";
+import YourNotes from "./pages/account/YourNotes";
+import AddNote from "./pages/account/AddNote";
+import UpdateNote from "./pages/account/UpdateNote";
+import GetStats from "./pages/account/GetStats";
+import ViewNote from "./pages/account/ViewNote";
+import NoteLayout from "./components/NoteLayout";
 
 function App() {
   return (
@@ -21,7 +30,19 @@ function App() {
               <Route path="auth/signup" element={<Signup />} />
               <Route path="auth/login" element={<Login />} />
             </Route>
-            <Route path="account" element={<Account />} />
+            <Route path="account" element={<AccountLayout />}>
+              <Route index element={<Account />} />
+              <Route path="update-profile" element={<UpdateProfile />} />
+              <Route path="membership" element={<MemberShip />} />
+
+              <Route path="notes" element={<NoteLayout />}>
+                <Route index element={<YourNotes />} />
+                <Route path="addnote" element={<AddNote />} />
+                <Route path="update-note" element={<UpdateNote />} />
+                <Route path="view-note" element={<ViewNote />} />
+                <Route path="get-stats" element={<GetStats />} />
+              </Route>
+            </Route>
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
