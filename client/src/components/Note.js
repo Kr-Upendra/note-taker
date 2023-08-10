@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Note() {
   const title = "Hello friends my name is upendra kumar.";
   const desc =
@@ -21,7 +23,9 @@ export default function Note() {
         </div>
       </div>
       <div className="notes__note--operations">
-        <i itemProp="edit" className="el-bt fa-solid fa-pen-to-square"></i>
+        <Link to="update-note">
+          <i itemProp="edit" className="el-bt fa-solid fa-pen-to-square"></i>
+        </Link>
         <i itemProp="delete" className="el-bt fa-solid fa-trash"></i>
         <i itemProp="view" className="el-bt fa-solid fa-eye"></i>
       </div>

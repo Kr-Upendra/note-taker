@@ -1,0 +1,147 @@
+.noteform {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d001393;
+  transition: all var(--transitionTimeStyle);
+}
+
+.noteform__box {
+  width: 50%;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #493fc05e;
+  backdrop-filter: blur(5px);
+  border: 2px solid var(--lightWhite);
+  position: relative;
+}
+
+.close__form {
+  position: absolute;
+  top: -2%;
+  right: -2%;
+  border-radius: 50%;
+  width: 30px;
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  background-color: var(--bluishGray);
+  cursor: pointer;
+  transition: background-color var(--transitionTimeStyle);
+}
+
+.close__form i {
+  font-size: 1.25rem;
+  color: var(--primaryWhite);
+  transition: all var(--transitionTimeStyle);
+}
+
+.close__form:hover i {
+  transform: rotate(1turn);
+  color: var(--primaryBlack);
+}
+
+.close__form:hover {
+  background-color: var(--primaryWhite);
+}
+
+.noteform__box h1 {
+  text-align: center;
+  color: var(--lightWhite);
+}
+
+.forms {
+  margin: 2rem 0 0 0;
+}
+
+.forms__items {
+  margin-bottom: 1rem;
+}
+
+.forms__items:last-child {
+  margin-bottom: 0;
+}
+
+.forms__items--label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 1.15rem;
+  margin-left: 0.25rem;
+  color: var(--lightWhite);
+  letter-spacing: 1px;
+}
+
+.forms__items--input {
+  width: 100%;
+  padding: 0.75rem 0.35rem;
+  font-size: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.45rem;
+  color: var(--primaryWhite);
+  background-image: var(--bgColor);
+  outline: none;
+}
+
+.forms__items--textarea {
+  padding: 0.75rem 0.35rem;
+  font-size: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.45rem;
+  color: var(--primaryWhite);
+  background-image: var(--bgColor);
+  font-family: inherit;
+  font-weight: 500;
+  outline: none;
+  width: 100%;
+  resize: none;
+}
+
+.forms__items--input:focus,
+.forms__items--textarea:focus,
+.forms__items--input:hover,
+.forms__items--textarea:hover {
+  border: 1px dotted var(--primaryWhite);
+}
+
+.btn-box {
+  text-align: center;
+}
+
+.forms__items--subbtn {
+  border: 1px solid red;
+  border-radius: 3rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  outline: none;
+  background-color: var(--lightWhite);
+  color: var(--primaryBlack);
+  cursor: pointer;
+  transition: all var(--transitionTimeStyle);
+}
+
+.forms__items--subbtn:hover {
+  background-color: var(--bluishGray);
+  color: var(--primaryWhite);
+  letter-spacing: 3px;
+}
+
+@media (max-width: 1000px) {
+  .noteform__box {
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .noteform__box {
+    width: 90%;
+  }
+}
