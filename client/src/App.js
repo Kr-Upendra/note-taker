@@ -1,18 +1,30 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
-import Footer from "./components/Footer/Footer";
+import About from "./pages/About";
+import Account from "./pages/Account";
+import Layout from "./components/Layout";
+import AuthLayout from "./components/AuthLayout";
+import Signup from "./components/Auth/Signup";
+import Login from "./components/Auth/Login";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
     <div className="app">
       <Router>
-        <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="auth" element={<AuthLayout />}>
+              <Route path="signup" element={<Signup />} />
+              <Route path="login" element={<Login />} />
+            </Route>
+            <Route path="account" element={<Account />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
       </Router>
     </div>
   );

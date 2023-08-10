@@ -9,7 +9,9 @@ export default function Home() {
           A place where you can create, save your memories without any tension.
           create once remember for ever.
         </p>
-        <Link className="el-getstarted">Get Started</Link>
+        <Link to="/auth/login" className="el-getstarted">
+          Get Started
+        </Link>
       </div>
     </div>
   );

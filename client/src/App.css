@@ -124,7 +124,7 @@ a {
   border-radius: 0.5rem;
   background-color: var(--lightBluishBorder);
   box-shadow: var(--lightyShadow);
-  display: none;
+  /* display: none; */
 }
 
 .container__item[aria-hidden="true"] {
@@ -682,7 +682,7 @@ a {
   }
 
   .container__item {
-    width: 100%;
+    width: 94%;
   }
 
   .form__inputbox label {
