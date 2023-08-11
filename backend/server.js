@@ -6,7 +6,12 @@ import { connectToDb } from "./dbConnection/connectToDb.js";
 
 const port = process.env.PORT;
 
-connectToDb(process.env.DATABASE);
+const database = process.env.DATABASE.replace(
+  "<password>",
+  process.env.PASSWORD
+);
+
+connectToDb(database);
 app.listen(port, () => {
-  console.log("server started at http://127.0.0.1:" + port);
+  console.log("server started at " + port);
 });
