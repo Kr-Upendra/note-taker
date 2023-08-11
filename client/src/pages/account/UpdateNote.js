@@ -1,6 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { useState } from "react";
+import axios from "axios";
+import { NoteUrl } from "../../utils/Urls";
 
 export default function UpdateNote() {
+  const { id } = useParams();
+  const [cookie] = useCookies(["access_token"]);
+  const navigate = useNavigate();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [tagEl, setTagEl] = useState("");
+
+  const tags = tagEl.split(", ");
+
+  const updateNote = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.patch(
+        NoteUrl + id,
+        { title, description, tags },
+        { headers: { Authorization: "Bearer " + cookie.access_token } }
+      );
+      if (response.data.status === "success") {
+        alert(response.data.message);
+        navigate("/account/notes");
+      }
+    } catch (err) {
+      alert(err.response.data.message || "some error occurred");
+    }
+  };
+
   return (
     <div className="noteform">
       <div className="noteform__box">
@@ -8,7 +38,7 @@ export default function UpdateNote() {
           <i className="fa-solid fa-xmark"></i>
         </Link>
         <h1>Update Your Note</h1>
-        <form className="forms">
+        <form onSubmit={updateNote} className="forms">
           <div className="forms__items">
             <label htmlFor="title" className="forms__items--label">
               Title
@@ -17,7 +47,7 @@ export default function UpdateNote() {
               type="text"
               className="forms__items--input"
               placeholder="Note Title..."
-              required
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
           <div className="forms__items">
@@ -29,7 +59,7 @@ export default function UpdateNote() {
               rows="5"
               className="forms__items--textarea"
               placeholder="Your Description"
-              required
+              onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
           <div className="forms__items">
@@ -39,9 +69,9 @@ export default function UpdateNote() {
             <input
               type="text"
               name="tags"
-              required
               placeholder="eg: Play, Dream"
               className="forms__items--input"
+              onChange={(e) => setTagEl(e.target.value)}
             />
           </div>
           <div className="forms__items btn-box">

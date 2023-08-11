@@ -2,11 +2,12 @@ import { useContext } from "react";
 import "./navCss/NavbarUser.css";
 import { NavbarContext } from "../../context/HandleNavContext";
 import { useCookies } from "react-cookie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function NavbarUser() {
   const { showNav, setShowNav } = useContext(NavbarContext);
   const [, setCookie] = useCookies(["access_token"]);
+  const navigate = useNavigate();
 
   const handleNavbar = () => {
     setShowNav((prevValue) => !prevValue);
@@ -15,6 +16,7 @@ export default function NavbarUser() {
   const handleLogout = () => {
     setCookie("access_token", "");
     localStorage.removeItem("currentUser");
+    navigate("/");
   };
 
   return (

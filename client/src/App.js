@@ -38,7 +38,7 @@ function App() {
               <Route path="notes" element={<NoteLayout />}>
                 <Route index element={<YourNotes />} />
                 <Route path="addnote" element={<AddNote />} />
-                <Route path="update-note" element={<UpdateNote />} />
+                <Route path="update-note/:id" element={<UpdateNote />} />
                 <Route path="view-note" element={<ViewNote />} />
                 <Route path="get-stats" element={<GetStats />} />
               </Route>

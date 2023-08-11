@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
+import { formatDate } from "../utils/formatDate";
 
-export default function Note() {
-  const title = "Hello friends my name is upendra kumar.";
-  const desc =
-    "I am a full stack developer. I have skills like Nodejs, Mongodb, Express for backend and to work on frontend I usually use ReactJs.";
+export default function Note(props) {
+  const { _id: id, title, description, tags, createdAt } = props;
 
   return (
     <div className="notes__note">
@@ -11,19 +10,20 @@ export default function Note() {
         <h2 className="el-title">{title.substring(0, 30)}</h2>
       </div>
       <div className="notes__note--description">
-        <p className="el-desc">{desc.substring(0, 90)}</p>
+        <p className="el-desc">{description.substring(0, 90)}</p>
       </div>
       <div className="notes__note--details">
         <div className="notes__note--details-tags">
-          <span className="el-tag">Play</span>
-          <span className="el-tag">Dream</span>
+          <span className="el-tag">{tags[0]}</span>
+          <span className="el-tag">{tags[1]}</span>
+          {tags[2] && <span className="el-tag">{tags[2]}</span>}
         </div>
         <div className="notes__note--details-date">
-          <span className="el-date">30/07/09</span>
+          <span className="el-date">{formatDate(createdAt)}</span>
         </div>
       </div>
       <div className="notes__note--operations">
-        <Link to="update-note">
+        <Link to={`update-note/${id}`}>
           <i itemProp="edit" className="el-bt fa-solid fa-pen-to-square"></i>
         </Link>
         <i itemProp="delete" className="el-bt fa-solid fa-trash"></i>
