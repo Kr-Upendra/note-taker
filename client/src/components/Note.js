@@ -24,10 +24,16 @@ export default function Note(props) {
   return (
     <div className="notes__note">
       <div className="notes__note--titlebox">
-        <h2 className="el-title">{title}</h2>
+        <h2 className="el-title">
+          {title.length > 30 ? title.substring(0, 30) + "..." : title}
+        </h2>
       </div>
       <div className="notes__note--description">
-        <p className="el-desc">{description.substring(0, 90)}</p>
+        <p className="el-desc">
+          {description.length > 90
+            ? description.substring(0, 90) + "..."
+            : description}
+        </p>
       </div>
       <div className="notes__note--details">
         <div className="notes__note--details-tags">

@@ -85,9 +85,6 @@
   font-size: 1.1rem;
   line-height: 1.25;
   color: var(--lightWhite);
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 .notes__note--description {

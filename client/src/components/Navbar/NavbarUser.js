@@ -23,7 +23,9 @@ export default function NavbarUser() {
   return (
     <div className="navbar__account">
       <span className="navbar__account--username">
-        Hello {localStorage.getItem("currentUser").split(" ")[0]}
+        Hello{" "}
+        {localStorage.getItem("currentUser") &&
+          localStorage.getItem("currentUser").split(" ")[0]}
       </span>
       <div className="navbar__account--box" onClick={handleNavbar}>
         <img
