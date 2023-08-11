@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthUrl } from "../../utils/Urls";
+import { useCookies } from "react-cookie";
 
 export default function Signup() {
   const navigate = useNavigate();
+  const [cookie] = useCookies(["access_token"]);
+
+  useEffect(() => {
+    if (cookie.access_token) navigate("/account/notes");
+  }, [cookie.access_token, navigate]);
+
   const [formDetails, setFormDetails] = useState({
     name: "",
     email: "",

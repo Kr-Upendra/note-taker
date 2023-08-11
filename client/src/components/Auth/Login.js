@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthUrl } from "../../utils/Urls";
 import axios from "axios";
@@ -8,8 +8,12 @@ import { useCookies } from "react-cookie";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [, setCookie] = useCookies(["access_token"]);
+  const [cookie, setCookie] = useCookies(["access_token"]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (cookie.access_token) navigate("/account/notes");
+  }, [cookie.access_token, navigate]);
 
   const loginUser = async (e) => {
     e.preventDefault();
