@@ -14,6 +14,7 @@ export default function NavbarUser() {
   };
 
   const handleLogout = () => {
+    handleNavbar();
     setCookie("access_token", "");
     localStorage.removeItem("currentUser");
     navigate("/");

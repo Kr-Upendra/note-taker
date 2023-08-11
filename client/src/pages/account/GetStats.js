@@ -1,7 +1,9 @@
+import NotImplemented from "../../components/NotImplemented";
+
 export default function GetStats() {
   return (
-    <div>
-      <h1>GetStats Page</h1>
+    <div className="nContainer">
+      <NotImplemented />
     </div>
   );
 }

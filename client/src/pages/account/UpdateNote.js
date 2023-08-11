@@ -1,8 +1,9 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { useState } from "react";
 import axios from "axios";
 import { NoteUrl } from "../../utils/Urls";
+import CloseBtn from "../../components/CloseBtn";
 
 export default function UpdateNote() {
   const { id } = useParams();
@@ -34,9 +35,7 @@ export default function UpdateNote() {
   return (
     <div className="noteform">
       <div className="noteform__box">
-        <Link to="/account/notes" className="close__form">
-          <i className="fa-solid fa-xmark"></i>
-        </Link>
+        <CloseBtn />
         <h1>Update Your Note</h1>
         <form onSubmit={updateNote} className="forms">
           <div className="forms__items">

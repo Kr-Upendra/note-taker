@@ -11,6 +11,7 @@ router
   .post(noteController.createNote);
 router
   .route("/:id")
+  .get(noteController.getNote)
   .patch(noteController.updateNote)
   .delete(noteController.deleteNote);
 

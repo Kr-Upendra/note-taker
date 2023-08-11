@@ -1,9 +1,10 @@
 import "./noteCss/AddNote.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { NoteUrl } from "../../utils/Urls";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { useState } from "react";
+import CloseBtn from "../../components/CloseBtn";
 
 export default function AddNote() {
   const [title, setTitle] = useState("");
@@ -38,9 +39,7 @@ export default function AddNote() {
   return (
     <div className="noteform">
       <div className="noteform__box">
-        <Link to="/account/notes" className="close__form">
-          <i className="fa-solid fa-xmark"></i>
-        </Link>
+        <CloseBtn />
         <h1>Add Note</h1>
         <form onSubmit={addNote} className="forms">
           <div className="forms__items">

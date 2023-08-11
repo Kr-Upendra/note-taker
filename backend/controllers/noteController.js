@@ -17,6 +17,30 @@ const getAllNote = async (req, res) => {
   }
 };
 
+const getNote = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const note = await Note.findById(id);
+
+    if (!note)
+      return res.status(404).json({
+        status: "fail",
+        message: "note not found with given ID!",
+      });
+
+    res.status(200).json({
+      status: "success",
+      doc: { note },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+      error: err,
+    });
+  }
+};
+
 const createNote = async (req, res) => {
   try {
     const note = await Note.create({
@@ -88,4 +112,4 @@ const deleteNote = async (req, res) => {
   }
 };
 
-export default { getAllNote, createNote, updateNote, deleteNote };
+export default { getAllNote, createNote, updateNote, deleteNote, getNote };

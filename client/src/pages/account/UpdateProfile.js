@@ -1,7 +1,9 @@
+import NotImplemented from "../../components/NotImplemented";
+
 export default function UpdateProfile() {
   return (
-    <div>
-      <h1>UpdateProfile Page</h1>
+    <div className="nContainer">
+      <NotImplemented />
     </div>
   );
 }

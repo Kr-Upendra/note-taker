@@ -1,0 +1,26 @@
+.vNote {
+  margin: 2rem 0 0;
+  padding: 0.5rem;
+  text-align: start !important;
+}
+
+.vNote h1 {
+  text-align: start;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--primaryWhite);
+}
+
+.vNote p {
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: var(--lightWhite);
+}
+
+.vNote__tags {
+  margin: 1rem 0;
+}
+
+.vNote__tags .el-tag {
+  color: var(--lightWhite);
+}
