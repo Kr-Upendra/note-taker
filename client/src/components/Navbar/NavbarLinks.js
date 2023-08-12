@@ -19,6 +19,13 @@ export default function NavbarLinks() {
         <Link onClick={handleNavbarLinks} to="/" className="el-nav-links">
           Home
         </Link>
+        <Link
+          onClick={handleNavbarLinks}
+          to="/membership"
+          className="el-nav-links"
+        >
+          Pricing
+        </Link>
         <Link onClick={handleNavbarLinks} to="/about" className="el-nav-links">
           About
         </Link>

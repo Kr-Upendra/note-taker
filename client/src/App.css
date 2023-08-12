@@ -2,7 +2,6 @@
 
 :root {
   --font-family: "Delius", cursive;
-  --border: 1px solid red;
   --bgColor: linear-gradient(315deg, #130f40 0%, #000000 74%);
   --lightWhite: #a7a6ba;
   --primaryWhite: #fff;

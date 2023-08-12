@@ -26,6 +26,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
+            <Route path="membership" element={<MemberShip />} />
             <Route element={<AuthLayout />}>
               <Route path="auth/signup" element={<Signup />} />
               <Route path="auth/login" element={<Login />} />
@@ -33,7 +34,6 @@ function App() {
             <Route path="account" element={<AccountLayout />}>
               <Route index element={<Account />} />
               <Route path="update-profile" element={<UpdateProfile />} />
-              <Route path="membership" element={<MemberShip />} />
 
               <Route path="notes" element={<NoteLayout />}>
                 <Route index element={<YourNotes />} />

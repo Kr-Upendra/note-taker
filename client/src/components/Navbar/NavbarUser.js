@@ -62,7 +62,7 @@ export default function NavbarUser() {
         </Link>
         <Link
           onClick={handleNavbar}
-          to="/account/membership"
+          to="/membership"
           className="navbar__account--options-item"
         >
           Memebership

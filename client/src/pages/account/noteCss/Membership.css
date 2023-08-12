@@ -1,0 +1,163 @@
+:root {
+  --violetColor: #8a2be2;
+}
+
+.plan-heading {
+  margin: 0 0 2rem 0;
+  text-align: center;
+}
+
+.p-h {
+  font-size: 2.25rem;
+  color: var(--primaryWhite);
+  line-height: 1.5;
+}
+
+.p-p {
+  font-size: 1rem;
+  color: var(--lightWhite);
+}
+
+.plans {
+  display: flex;
+  gap: 2.5rem;
+  padding: 0 2rem;
+  justify-content: center;
+}
+
+.planbox {
+  width: 100%;
+  border-radius: 0.25rem;
+  max-width: 320px;
+  padding: 1.55rem 0;
+  margin-bottom: 1rem;
+  background-color: var(--primaryWhite);
+  box-shadow: var(--darkShadow);
+}
+
+.plan__type {
+  margin: 0.5rem 0 1.25rem;
+  width: 70%;
+  border-radius: 0.15rem;
+  padding: 1.25rem 0;
+  margin-left: -0.75rem;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+}
+
+.plan__type h1 {
+  margin-left: 3rem;
+  font-size: 2rem;
+  color: var(--primaryWhite);
+  letter-spacing: 1px;
+}
+
+.plan__otd {
+  padding: 0 2.5rem;
+}
+
+.plan__otd--pricing {
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.plan__otd--pricing h2 {
+  font-size: 2.5rem;
+  color: var(--primaryBlack);
+}
+
+.plan__otd--benefits {
+  margin-bottom: 1.25rem;
+  margin-left: 0.75rem;
+}
+
+::marker {
+  font-size: 1.25rem;
+  color: var(--violetColor);
+}
+
+.bn-items {
+  margin-bottom: 0.55rem;
+}
+
+.r {
+  display: flex;
+  align-items: center;
+}
+
+.r span {
+  margin-right: auto;
+}
+
+.bn-items-t {
+  font-size: 1rem;
+  color: var(--bluishGray);
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  width: max-content;
+  padding: 0.1rem 1rem 0.35rem 0.35rem;
+  transition: all var(--transitionTimeStyle);
+  cursor: default;
+}
+
+.bn-items-t:hover {
+  color: var(--primaryWhite);
+}
+
+.bn-items-t::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: var(--violetColor);
+  z-index: -1;
+  border-radius: 0.15rem;
+  transition: all var(--transitionTimeStyle);
+}
+
+.bn-items-t:hover::after {
+  width: 100%;
+}
+
+.bn-mark-r {
+  color: rgb(0, 209, 0);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.bn-mark-x {
+  color: orangered;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.plan__otd--sbtn {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.s-btn {
+  padding: 1rem 0;
+  width: 80%;
+  border-radius: 3rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primaryWhite);
+  background-color: var(--violetColor);
+  cursor: pointer;
+  transition: background-color var(--transitionTimeStyle);
+}
+
+.s-btn:hover {
+  background-color: #4f0099;
+}
+
+@media (max-width: 850px) {
+  .plans {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+}
